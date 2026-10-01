@@ -1,0 +1,77 @@
+.folio-format-capsule {
+  position: absolute;
+  z-index: 5;
+  top: 12px;
+  left: calc(var(--md-split-ratio, 50%) / 2);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border-radius: var(--r-full);
+  background: var(--paper-elevated);
+  box-shadow: var(--shadow-2);
+  animation: folio-format-enter 200ms ease both;
+}
+.folio-md-edit.source-only .folio-format-capsule {
+  left: 50%;
+}
+.folio-format-group {
+  display: flex;
+  border-left: 1px solid var(--hairline);
+  padding-left: 4px;
+}
+.folio-format-capsule button {
+  display: grid;
+  place-items: center;
+  min-width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: var(--r-full);
+  background: transparent;
+  color: var(--ink-2);
+  cursor: default;
+}
+.folio-format-capsule button:hover,
+.folio-format-capsule button:focus-visible {
+  background: var(--fill-hover);
+  color: var(--ink);
+}
+.folio-format-heading {
+  position: relative;
+}
+.folio-format-popup {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  min-width: 160px;
+  padding: 6px;
+  border-radius: var(--r-md);
+  background: var(--paper-elevated);
+  box-shadow: var(--shadow-2);
+}
+.folio-format-popup button {
+  width: 100%;
+  justify-content: start;
+  padding: 0 10px;
+  border-radius: var(--r-sm);
+  white-space: nowrap;
+}
+@keyframes folio-format-enter {
+  from {
+    opacity: 0;
+    translate: 0 -6px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+.folio-md-editor .cm-search {
+  border-radius: var(--r-full);
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio-format-capsule {
+    animation-duration: 120ms;
+  }
+}

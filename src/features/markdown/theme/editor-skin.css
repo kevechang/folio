@@ -1,0 +1,92 @@
+.folio-md-editor .penna-editor-cm .cm-cursor {
+  border-left: 2px solid var(--accent) !important;
+}
+.folio-md-editor .cm-activeLine {
+  background: var(--fill-hover);
+}
+.folio-md-editor .cm-gutters {
+  background: var(--paper);
+  color: var(--ink-4);
+  border-right: 0;
+  font: 11px var(--font-mono);
+}
+.folio-md-editor .cm-scroller,
+.folio-md-preview,
+.folio-md-reader {
+  scrollbar-color: var(--ink-4) transparent;
+  scrollbar-width: thin;
+}
+.folio-md-editor .cm-panels {
+  background: var(--paper-elevated);
+  color: var(--ink);
+  border-bottom: 1px solid var(--hairline);
+  box-shadow: var(--shadow-1);
+}
+.folio-md-editor .cm-search {
+  background: var(--paper-elevated);
+  color: var(--ink);
+}
+.folio-md-editor .cm-search input {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+}
+.folio-md-editor .cm-search button {
+  background: var(--paper-elevated);
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-sm);
+}
+.folio-md-editor .cm-h,
+.folio-md-editor :is(.cm-h1, .cm-h2, .cm-h3, .cm-h4, .cm-h5, .cm-h6) {
+  color: var(--ink);
+  font-weight: 600;
+}
+.folio-md-editor .cm-mark,
+.folio-md-editor .cm-em {
+  color: var(--ink-4);
+}
+.folio-md-editor .cm-link {
+  color: var(--accent-ink);
+}
+.folio-md-editor .cm-url {
+  color: var(--ink-3);
+}
+.folio-md-editor .cm-quote {
+  color: var(--kraft);
+}
+.folio-md-editor .cm-list {
+  color: var(--accent-ink);
+}
+.folio-md-editor .cm-code {
+  background: var(--paper-sunken);
+  border-radius: 4px;
+}
+.folio-md-editor .cm-str {
+  color: var(--ink-2);
+}
+.folio-md-layout-toggle {
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  z-index: 2;
+  border: 0;
+  border-radius: var(--r-full);
+  padding: 5px 10px;
+  color: var(--ink-2);
+  background: var(--paper-elevated);
+  box-shadow: var(--glass-edge);
+}
+.folio-md-progress-a11y {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio-md-divider i {
+    transition: none;
+  }
+}

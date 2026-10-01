@@ -1,0 +1,9 @@
+node_modules/
+dist/
+out/
+.npm-cache/
+.cache/
+.DS_Store
+*.tsbuildinfo
+public/excalidraw-assets/
+

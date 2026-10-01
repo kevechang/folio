@@ -1,0 +1,251 @@
+.folio-shell {
+  height: 100%;
+  position: relative;
+}
+.folio-start {
+  height: 100%;
+  background: var(--paper);
+}
+.folio-start header {
+  height: 52px;
+}
+.folio-start main {
+  height: calc(100% - 52px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.folio-start-mark {
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-xl);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-size: var(--fs-display);
+}
+.folio-start h1 {
+  font: 600 var(--fs-display)/1.214 var(--font-display);
+  margin: 20px 0 8px;
+}
+.folio-start p {
+  color: var(--ink-2);
+  margin: 0 0 24px;
+}
+.folio-start-actions {
+  display: flex;
+  gap: 8px;
+}
+.folio-start-actions .folio-button {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.folio-start section {
+  width: 320px;
+  margin-top: 48px;
+}
+.folio-start h2 {
+  font: 600 var(--fs-caption)/1.273 var(--font-ui);
+  color: var(--ink-3);
+  letter-spacing: 0.02em;
+}
+.folio-start section > button {
+  display: block;
+  width: 100%;
+  min-height: 32px;
+  border: 0;
+  border-radius: var(--r-md);
+  padding: 0 10px;
+  text-align: left;
+  background: transparent;
+  color: var(--ink-2);
+  cursor: default;
+}
+.folio-start section > button:hover {
+  background: var(--fill-hover);
+}
+.folio-loading {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--ink-3);
+}
+.folio-toast-host {
+  position: absolute;
+  z-index: 1000;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  gap: 8px;
+}
+.folio-gallery {
+  height: 100%;
+  overflow: auto;
+  padding: 32px;
+}
+.folio-gallery > h1 {
+  font: 600 var(--fs-display)/1.214 var(--font-display);
+}
+.folio-gallery-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.folio-gallery section {
+  --text-scale: inherit;
+  min-height: 700px;
+  padding: 24px;
+  border-radius: var(--r-xl);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: var(--shadow-1);
+}
+.folio-gallery .gallery-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+  flex-wrap: wrap;
+}
+.folio-gallery .gallery-drop-preview {
+  height: 180px;
+  position: relative;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+.folio-gallery .gallery-status-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.folio-gallery .gallery-status-list .folio-title-button {
+  background: var(--paper-elevated);
+  box-shadow: var(--shadow-1);
+}
+.folio-gallery .gallery-drop-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.folio-gallery .gallery-drop-preview {
+  height: 180px;
+}
+.folio-gallery .gallery-drop-preview .folio-drop-content h2 {
+  font-size: var(--fs-headline);
+}
+.folio-gallery .gallery-drop-preview .folio-drop-content p {
+  font-size: var(--fs-caption);
+}
+.folio-document-stage {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.folio-transition-thumb {
+  position: absolute;
+  z-index: 100;
+  left: 232px;
+  top: 52px;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.folio-transition-thumb-surface {
+  width: 100%;
+  height: 100%;
+}
+:root[data-theme="dark"] .folio-transition-thumb-surface {
+  filter: invert(93%) hue-rotate(180deg);
+}
+.folio-transition-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio-transition-thumb {
+    display: none;
+  }
+}
+.folio-gallery .gallery-library-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.folio-gallery .gallery-library-cards .library-card {
+  min-width: 0;
+}
+.folio-gallery .gallery-empty {
+  min-height: 260px;
+  border-radius: var(--r-xl);
+  background: var(--paper-elevated);
+}
+.folio-gallery .gallery-empty .library-empty {
+  margin-top: 0;
+  padding-top: 12px;
+}
+.folio-gallery .gallery-sidebar {
+  width: 232px;
+  height: 240px;
+  overflow: hidden;
+  border-radius: var(--r-xl);
+}
+
+.folio-library-stage {
+  height: 100%;
+  z-index: 1;
+}
+.folio-document-stage,
+.folio-library-stage {
+  position: absolute;
+  inset: 0;
+}
+
+.folio-library-stage.is-returning .library-grid-stage {
+  animation: folio-library-content-in 160ms var(--ease-out) both;
+}
+@keyframes folio-library-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio-library-stage.is-returning .library-grid-stage {
+    animation: folio-fade 120ms var(--ease-out) both;
+  }
+}
+
+.folio-document-stage.is-ready .folio-document-bar {
+  animation: folio-topbar-in 240ms var(--ease-out) 80ms both;
+}
+@keyframes folio-topbar-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio-document-stage.is-ready .folio-document-bar {
+    animation: folio-fade 120ms var(--ease-out) both;
+  }
+}
+.folio-gallery .gallery-sidebar .library-folder-row .library-side-item {
+  background: var(--fill-hover);
+}

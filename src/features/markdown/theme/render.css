@@ -1,0 +1,205 @@
+.folio-md .folio-skeleton {
+  min-height: 80px;
+  border-radius: var(--r-lg);
+  background: linear-gradient(
+    100deg,
+    var(--paper-sunken) 30%,
+    var(--paper-elevated) 50%,
+    var(--paper-sunken) 70%
+  );
+  background-size: 200% 100%;
+  animation: folio-md-shimmer 1.6s linear infinite;
+}
+.folio-md span.folio-skeleton {
+  display: inline-block;
+  min-width: 4em;
+  min-height: 1em;
+  vertical-align: middle;
+}
+.folio-md .folio-mermaid.folio-skeleton,
+.folio-md .folio-chart.folio-skeleton {
+  min-height: 220px;
+}
+.folio-md .folio-mermaid,
+.folio-md .folio-chart {
+  margin: 1rem 0;
+  overflow-x: auto;
+  text-align: center;
+}
+.folio-md .folio-chart {
+  box-sizing: border-box;
+  height: 320px;
+}
+.folio-md .folio-math[data-display] {
+  margin: 1em 0;
+  overflow-x: auto;
+  text-align: center;
+}
+.folio-md .folio-embed.folio-skeleton {
+  aspect-ratio: 16 / 9;
+}
+.folio-md .folio-ready {
+  animation: folio-md-appear 200ms ease both;
+}
+.folio-md .folio-render-error {
+  border: 1px dashed var(--hairline);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  color: var(--danger);
+  font: var(--fs-caption) var(--font-mono);
+}
+.folio-embed-repair {
+  display: block;
+  margin: 12px auto 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent-ink);
+  font: 500 var(--fs-caption)/1 var(--font-ui);
+  white-space: nowrap;
+  cursor: default;
+}
+.folio-md .folio-embed {
+  position: relative;
+  margin: 24px 0;
+  text-align: center;
+}
+.folio-embed-art {
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-1);
+  transition:
+    transform 180ms,
+    box-shadow 180ms;
+}
+.folio-embed-art svg {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  display: block;
+}
+.folio-embed-art.is-dark {
+  filter: invert(93%) hue-rotate(180deg);
+}
+.folio-embed:hover .folio-embed-art {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+}
+.gallery-embed-hover .folio-embed-art {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+}
+.folio-embed-open {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 26px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: var(--r-full);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--glass-edge), var(--shadow-2);
+  color: var(--ink);
+  font: 500 var(--fs-caption)/1 var(--font-ui);
+  white-space: nowrap;
+  opacity: 0;
+  cursor: default;
+}
+.folio-embed-open::after {
+  content: "↗";
+  font-size: 12px;
+  line-height: 1;
+}
+.folio-embed:hover .folio-embed-open,
+.folio-embed-open:focus-visible {
+  opacity: 1;
+}
+.gallery-embed-hover .folio-embed-open {
+  opacity: 1;
+}
+.folio-embed figcaption {
+  margin-top: 8px;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+.folio-md img {
+  cursor: zoom-in;
+}
+.folio-md-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 5vh 5vw;
+  background: var(--scrim);
+  backdrop-filter: blur(8px);
+  cursor: zoom-out;
+}
+.folio-md-lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+.folio-md-find {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: var(--r-full);
+  background: var(--paper-elevated);
+  box-shadow: var(--shadow-2);
+  color: var(--ink);
+  font: 500 var(--fs-caption)/1 var(--font-ui);
+  white-space: nowrap;
+}
+.folio-md-find input {
+  width: 180px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  outline: 0;
+}
+.folio-md-find button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink-2);
+  font: inherit;
+  cursor: default;
+}
+.folio-search-hit {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+@keyframes folio-md-shimmer {
+  to {
+    background-position-x: -200%;
+  }
+}
+@keyframes folio-md-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio-md .folio-skeleton {
+    animation: none;
+  }
+  .folio-md .folio-ready {
+    animation-duration: 120ms;
+  }
+}

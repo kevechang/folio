@@ -1,0 +1,48 @@
+appId: dev.folio.reader
+productName: Folio
+asar: true
+electronVersion: 44.4.5
+electronDist: node_modules/electron/dist
+mac:
+  target:
+    - target: dir
+      arch: arm64
+  identity: "-"
+  hardenedRuntime: false
+  notarize: false
+  icon: build/icon.icns
+fileAssociations:
+  - ext: excalidraw
+    name: Excalidraw 画布
+    role: Editor
+  - ext:
+      - md
+      - markdown
+    name: Markdown 文稿
+    role: Editor
+    rank: Alternate
+electronLanguages:
+  - zh_CN
+  - en
+files:
+  - out/**
+  - package.json
+  - "!**/*.map"
+  - "!tests/**"
+  - "!docs/**"
+  - "!src/**"
+  - "!electron/**"
+  - "!node_modules/**"
+directories:
+  output: dist/electron-builder
+extraResources:
+  - from: LICENSE
+    to: LICENSE
+  - from: THIRD_PARTY_NOTICES.md
+    to: THIRD_PARTY_NOTICES.md
+  - from: licenses
+    to: licenses
+  - from: node_modules/electron/dist/LICENSE
+    to: licenses/Electron-LICENSE
+  - from: node_modules/electron/dist/LICENSES.chromium.html
+    to: licenses/Electron-LICENSES.chromium.html

@@ -1,0 +1,158 @@
+.folio-document {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+}
+.folio-document-bar {
+  height: 52px;
+  flex: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 0 84px;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
+  box-shadow: var(--glass-edge), var(--shadow-2);
+  z-index: 10;
+}
+.folio-document-left,
+.folio-document-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.folio-document-bar > .folio-segmented {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 184px;
+}
+.folio-document-bar > .folio-segmented button {
+  flex: 1;
+}
+.folio-title-button {
+  border: 0;
+  background: none;
+  cursor: default;
+  padding: 4px 8px;
+  border-radius: var(--r-md);
+  text-align: left;
+  color: var(--ink);
+}
+.folio-title-button:hover {
+  background: var(--fill-hover);
+}
+.folio-title-button > span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  max-width: min(320px, 28vw);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.folio-title-button small {
+  display: block;
+  font-size: var(--fs-caption);
+  line-height: 1.273;
+  color: var(--ink-3);
+}
+.folio-dirty-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 5px;
+}
+.folio-title-popover {
+  z-index: 1000;
+  transform-origin: var(--radix-popover-content-transform-origin);
+  width: 300px;
+  padding: 12px;
+  border: 0;
+  border-radius: var(--r-lg);
+  background: var(--glass-bg-strong);
+  box-shadow: var(--glass-edge), var(--shadow-3);
+  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
+  animation: folio-pop var(--dur-base) var(--ease-out);
+}
+.folio-title-popover input {
+  width: 100%;
+  min-height: 32px;
+  padding: 5px 10px;
+  border: 0;
+  border-radius: var(--r-md);
+  background: var(--paper-sunken);
+  color: var(--ink);
+}
+.folio-title-popover hr {
+  border: 0;
+  border-top: 0.5px solid var(--hairline);
+  margin: 8px 0;
+}
+.folio-path {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font: var(--fs-caption) var(--font-mono);
+  color: var(--ink-3);
+}
+.folio-canvas {
+  min-height: 0;
+  flex: 1;
+}
+.folio-canvas > .excalidraw {
+  height: 100%;
+  width: 100%;
+}
+.folio-welcome-logo {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-lg);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-size: var(--fs-display);
+}
+.folio-canvas .welcome-screen-center__heading {
+  font: 600 22px/28px var(--font-display);
+  color: var(--ink);
+}
+
+.folio-title-popover[data-state="closed"] {
+  animation: folio-fade-out var(--dur-fast) var(--ease-in);
+}
+.folio-title-name {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.folio-title-button small {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.folio-save-indicator {
+  display: inline-grid;
+  place-items: center;
+  width: 12px;
+  height: 12px;
+}
+.folio-saved-check {
+  display: inline-grid;
+  place-items: center;
+  color: var(--success);
+}
+.folio-path > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 174px;
+}

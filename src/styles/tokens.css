@@ -1,0 +1,150 @@
+:root,
+[data-theme="light"] {
+  --text-scale: 1.12;
+  --fs-caption: calc(11px * var(--text-scale));
+  --fs-footnote: calc(12px * var(--text-scale));
+  --fs-body: calc(13px * var(--text-scale));
+  --fs-headline: calc(15px * var(--text-scale));
+  --fs-title: calc(22px * var(--text-scale));
+  --fs-display: calc(28px * var(--text-scale));
+  color-scheme: light;
+  --paper-elevated: #ffffff;
+  --paper: #faf9f5;
+  --paper-2: #f5f4ed;
+  --paper-sunken: #f0eee6;
+  --paper-pressed: #e8e6dc;
+  --ink: #1f1e1d;
+  --ink-2: #5e5d59;
+  --ink-3: #8a8880;
+  --ink-4: #b0aea5;
+  --hairline: rgba(31, 30, 29, 0.1);
+  --hairline-strong: rgba(31, 30, 29, 0.16);
+  --fill-hover: rgba(31, 30, 29, 0.05);
+  --fill-press: rgba(31, 30, 29, 0.09);
+  --accent: #d97757;
+  --accent-hover: #cf6b4a;
+  --accent-press: #c15f3c;
+  --accent-ink: #b85a3b;
+  --accent-soft: rgba(217, 119, 87, 0.14);
+  --accent-softer: rgba(217, 119, 87, 0.08);
+  --accent-ring: rgba(217, 119, 87, 0.4);
+  --on-accent: #ffffff;
+  --kraft: #d4a27f;
+  --manilla: #ebdbbc;
+  --success: #5f8a57;
+  --warning: #c8923b;
+  --danger: #bf4d43;
+  --scrim: rgba(31, 30, 29, 0.28);
+  --font-ui:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB",
+    "Helvetica Neue", system-ui, sans-serif;
+  --font-display: ui-serif, "New York", "Songti SC", Georgia, serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --r-xs: 6px;
+  --r-sm: 8px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+  --r-2xl: 28px;
+  --r-full: 999px;
+  --glass-bg: rgba(250, 249, 245, 0.72);
+  --glass-bg-strong: rgba(255, 255, 255, 0.86);
+  --glass-filter: blur(24px) saturate(1.8);
+  --glass-edge: inset 0 0 0 0.5px rgba(31, 30, 29, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  --shadow-1: 0 1px 2px rgba(60, 40, 20, 0.06), 0 0 0 0.5px rgba(60, 40, 20, 0.06);
+  --shadow-2: 0 2px 8px rgba(60, 40, 20, 0.06), 0 10px 28px -6px rgba(60, 40, 20, 0.12);
+  --shadow-3: 0 6px 16px rgba(60, 40, 20, 0.08), 0 24px 56px -12px rgba(60, 40, 20, 0.22);
+  --shadow-4: 0 12px 32px rgba(60, 40, 20, 0.12), 0 40px 96px -16px rgba(60, 40, 20, 0.3);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
+  --ease-spring: linear(
+    0,
+    0.057,
+    0.19,
+    0.353,
+    0.517,
+    0.663,
+    0.785,
+    0.879,
+    0.947,
+    0.992,
+    1.019,
+    1.034,
+    1.038,
+    1.037,
+    1.032,
+    1.026,
+    1.02,
+    1.014,
+    1.009,
+    1.005,
+    1.003,
+    1.001,
+    0.999,
+    0.999,
+    0.999,
+    0.999,
+    0.999,
+    0.999,
+    0.999,
+    0.999,
+    1
+  );
+  --dur-instant: 90ms;
+  --dur-fast: 160ms;
+  --dur-base: 240ms;
+  --dur-slow: 360ms;
+  --dur-page: 480ms;
+}
+@property --text-scale {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1.12;
+}
+:root {
+  transition: --text-scale var(--dur-fast) var(--ease-out);
+}
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    transition: none;
+  }
+}
+:root[data-theme="dark"],
+[data-theme="dark"] {
+  color-scheme: dark;
+  --paper-elevated: #30302e;
+  --paper: #262624;
+  --paper-2: #1f1e1d;
+  --paper-sunken: #1a1918;
+  --paper-pressed: #3a3a37;
+  --ink: #f5f4ee;
+  --ink-2: #c2c0b6;
+  --ink-3: #9c9a92;
+  --ink-4: #6b6a65;
+  --hairline: rgba(250, 249, 245, 0.08);
+  --hairline-strong: rgba(250, 249, 245, 0.14);
+  --fill-hover: rgba(250, 249, 245, 0.06);
+  --fill-press: rgba(250, 249, 245, 0.1);
+  --accent: #d97757;
+  --accent-hover: #e0866a;
+  --accent-press: #c96a4c;
+  --accent-ink: #efa58a;
+  --accent-soft: rgba(217, 119, 87, 0.2);
+  --accent-softer: rgba(217, 119, 87, 0.12);
+  --accent-ring: rgba(217, 119, 87, 0.55);
+  --on-accent: #ffffff;
+  --kraft: #b98b69;
+  --manilla: #4a4235;
+  --success: #8db482;
+  --warning: #e0b064;
+  --danger: #e27a6f;
+  --scrim: rgba(0, 0, 0, 0.45);
+  --glass-bg: rgba(38, 38, 36, 0.72);
+  --glass-bg-strong: rgba(48, 48, 46, 0.88);
+  --glass-edge: inset 0 0 0 0.5px rgba(250, 249, 245, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 0.5px rgba(0, 0, 0, 0.3);
+  --shadow-2: 0 2px 8px rgba(0, 0, 0, 0.35), 0 10px 28px -6px rgba(0, 0, 0, 0.35);
+  --shadow-3: 0 6px 16px rgba(0, 0, 0, 0.5), 0 24px 56px -12px rgba(0, 0, 0, 0.5);
+  --shadow-4: 0 12px 32px rgba(0, 0, 0, 0.6), 0 40px 96px -16px rgba(0, 0, 0, 0.6);
+}

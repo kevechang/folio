@@ -1,0 +1,53 @@
+/* Folio paper colors the full Penna preview pane, including space outside the text column. */
+.folio-md-reader-host .penna,
+.folio-md-preview-host .penna {
+  --penna-c-bg: var(--paper);
+  --penna-c-bg-elevated: var(--paper);
+}
+
+/* Folio paper and ink tokens color the Penna reading surface without changing its layout. */
+.penna .penna-render.folio-md {
+  --penna-c-bg: var(--paper);
+  --penna-c-text-1: var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* Map Penna's brand and link colors to Folio's terracotta accent. */
+.penna .penna-render.folio-md {
+  --penna-c-brand-1: var(--accent);
+  --penna-c-brand-2: var(--accent);
+  --penna-c-brand-3: var(--accent);
+  --penna-c-brand-soft: var(--accent-soft);
+}
+
+/* Penna's dark class supplies its dark palette; Folio supplies only paper and ink. */
+.penna-dark .penna-render.folio-md {
+  --penna-c-bg: var(--paper);
+  --penna-c-text-1: var(--ink);
+  --penna-c-brand-1: var(--accent);
+  --penna-c-brand-2: var(--accent);
+  --penna-c-brand-3: var(--accent);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* Penna uses a 1rem root size; apply Folio's single reader scale there. */
+.penna .penna-render.folio-md {
+  font-size: calc(1rem * var(--text-scale));
+}
+
+/* Keep Folio's centered reading widths and at least 32px side space. */
+.penna .penna-render.folio-md {
+  box-sizing: border-box;
+  width: min(100%, var(--folio-md-width, 720px));
+  transition: width var(--dur-base) var(--ease-out);
+  margin-inline: auto;
+  padding: 56px 32px 120px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .penna .penna-render.folio-md {
+    transition: none;
+  }
+}

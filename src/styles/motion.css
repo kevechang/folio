@@ -1,0 +1,109 @@
+@keyframes folio-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes folio-dialog {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes folio-edit {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+@keyframes folio-dash {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+@keyframes folio-float {
+  50% {
+    transform: translateY(-3px);
+  }
+}
+@keyframes folio-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes folio-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+:root[data-theme-switching],
+:root[data-theme-switching] :not(canvas),
+:root[data-theme-switching] :not(canvas)::before,
+:root[data-theme-switching] :not(canvas)::after {
+  /* Temporarily override component transitions so every color changes together; canvas stays immediate. */
+  transition:
+    background-color 220ms var(--ease-out),
+    color 220ms var(--ease-out),
+    border-color 220ms var(--ease-out),
+    fill 220ms var(--ease-out),
+    stroke 220ms var(--ease-out),
+    box-shadow 220ms var(--ease-out) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio-app .folio-menu,
+  .folio-app .folio-dialog,
+  .folio-app .folio-toast,
+  .folio-app .folio-tooltip,
+  .folio-app .folio-title-popover,
+  .folio-app .is-editing .excalidraw .App-toolbar,
+  .folio-app .is-editing .excalidraw .App-menu__left,
+  .folio-app .is-editing .excalidraw .undo-redo-buttons,
+  .folio-app .is-editing .excalidraw .App-toolbar .ToolIcon,
+  .folio-app .excalidraw .dropdown-menu,
+  .folio-app .excalidraw .dropdown-menu-container,
+  .folio-app .excalidraw .context-menu,
+  .folio-app .excalidraw .Modal__content,
+  .folio-app .excalidraw .Dialog,
+  .folio-app .excalidraw .Toast,
+  .folio-app .excalidraw .welcome-screen-menu-item {
+    animation-name: folio-fade;
+    animation-duration: 120ms;
+    animation-iteration-count: 1;
+  }
+  .folio-app .folio-title-popover[data-state="closed"] {
+    animation-name: folio-fade-out;
+  }
+  .folio-app * {
+    transition-property: opacity, background-color, color, box-shadow;
+    transition-duration: 120ms;
+  }
+  .folio-app .folio-drop-dash,
+  .folio-app .folio-drop-icon {
+    animation: none;
+  }
+  .folio-app .folio-button:active,
+  .folio-app .folio-icon-button:active,
+  .folio-app .excalidraw .ToolIcon:active {
+    transform: none;
+  }
+}

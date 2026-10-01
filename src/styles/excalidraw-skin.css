@@ -1,0 +1,353 @@
+.folio-app .excalidraw {
+  --ui-font: var(--font-ui);
+  --color-primary: var(--accent);
+  --color-primary-darker: var(--accent-hover);
+  --color-primary-darkest: var(--accent-press);
+  --color-primary-hover: var(--accent-hover);
+  --color-primary-light: var(--accent-soft);
+  --color-primary-light-darker: color-mix(in oklab, var(--accent-soft) 80%, var(--accent));
+  --color-brand-hover: var(--accent-hover);
+  --color-brand-active: var(--accent-press);
+  --color-surface-primary-container: var(--accent-soft);
+  --color-on-primary-container: var(--accent-ink);
+  --color-selection: #d97757;
+  --island-bg-color: var(--glass-bg-strong);
+  --popup-bg-color: var(--glass-bg-strong);
+  --popup-secondary-bg-color: var(--paper-elevated);
+  --sidebar-bg-color: var(--glass-bg-strong);
+  --color-surface-lowest: var(--paper-elevated);
+  --color-surface-low: var(--paper-sunken);
+  --color-surface-mid: var(--paper-2);
+  --color-surface-high: var(--fill-press);
+  --color-on-surface: var(--ink);
+  --text-primary-color: var(--ink);
+  --icon-fill-color: var(--ink);
+  --text-color: var(--ink);
+  --popup-text-color: var(--ink);
+  --button-hover-bg: var(--fill-hover);
+  --button-active-bg: var(--fill-press);
+  --button-gray-1: var(--paper-sunken);
+  --button-gray-2: var(--accent-soft);
+  --button-gray-3: var(--accent-softer);
+  --default-border-color: var(--hairline);
+  --dialog-border-color: var(--hairline);
+  --sidebar-border-color: var(--hairline);
+  --input-bg-color: var(--paper-sunken);
+  --input-border-color: var(--hairline-strong);
+  --input-hover-bg-color: var(--paper-pressed);
+  --focus-highlight-color: var(--accent-ring);
+  --select-highlight-color: var(--accent);
+  --shadow-island: var(--shadow-2);
+  --modal-shadow: var(--shadow-4);
+  --sidebar-shadow: var(--shadow-3);
+  --overlay-bg-color: var(--scrim);
+  --border-radius-md: 10px;
+  --border-radius-lg: 14px;
+  --color-gray-10: color-mix(in oklab, var(--paper) 90%, var(--ink));
+  --color-gray-20: color-mix(in oklab, var(--paper) 80%, var(--ink));
+  --color-gray-30: color-mix(in oklab, var(--paper) 70%, var(--ink));
+  --color-gray-40: color-mix(in oklab, var(--paper) 60%, var(--ink));
+  --color-gray-50: color-mix(in oklab, var(--paper) 50%, var(--ink));
+  --color-gray-60: color-mix(in oklab, var(--paper) 40%, var(--ink));
+  --color-gray-70: color-mix(in oklab, var(--paper) 30%, var(--ink));
+  --color-gray-80: color-mix(in oklab, var(--paper) 20%, var(--ink));
+  --color-gray-85: color-mix(in oklab, var(--paper) 15%, var(--ink));
+  --color-gray-90: color-mix(in oklab, var(--paper) 10%, var(--ink));
+  --color-gray-100: var(--ink);
+  --color-slider-track: var(--paper-pressed);
+  --color-slider-thumb: var(--paper-elevated);
+  --color-danger: var(--danger);
+  --color-danger-dark: var(--danger);
+  --color-danger-darker: var(--danger);
+  --color-danger-darkest: var(--danger);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-text-warning: var(--warning);
+  --color-muted: var(--ink-3);
+}
+.folio-app .excalidraw.theme--dark {
+  --color-selection: #b9502f;
+}
+.folio-app .excalidraw .Island {
+  background: var(--glass-bg-strong);
+  box-shadow: var(--glass-edge), var(--shadow-2);
+  border: 0;
+  border-radius: var(--r-xl);
+}
+.folio-app .excalidraw .App-toolbar .Island,
+.folio-app .excalidraw .App-toolbar-container .Island {
+  border-radius: var(--r-full);
+  padding: 5px;
+}
+.folio-app .excalidraw .App-toolbar-container .ToolIcon__icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-full);
+}
+.folio-app .excalidraw .ToolIcon {
+  border-radius: var(--r-sm);
+  transition:
+    transform 420ms var(--ease-spring),
+    background var(--dur-fast);
+}
+.folio-app .excalidraw .ToolIcon:active {
+  transform: scale(0.97);
+  transition-duration: var(--dur-instant);
+}
+.folio-app .excalidraw .ToolIcon--selected,
+.folio-app .excalidraw .ToolIcon .ToolIcon_type_radio:checked + .ToolIcon__icon,
+.folio-app .excalidraw .ToolIcon .ToolIcon_type_checkbox:checked + .ToolIcon__icon {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+.folio-app .excalidraw .ToolIcon__keybinding {
+  font-size: 9px;
+  color: var(--ink-4);
+}
+.folio-app .excalidraw .App-menu__left .Island,
+.folio-app .excalidraw .panelColumn .Island {
+  border-radius: var(--r-xl);
+  padding: 12px;
+}
+.folio-app .excalidraw .panelColumn h3,
+.folio-app .excalidraw .panelColumn legend {
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink-3);
+}
+.folio-app .excalidraw .buttonList button {
+  border-radius: var(--r-sm);
+}
+.folio-app .excalidraw .color-picker__button,
+.folio-app .excalidraw .color-picker-swatch,
+.folio-app .excalidraw .color-picker-label-swatch {
+  --radius: var(--r-full);
+  width: 22px;
+  height: 22px;
+  border: 0;
+  border-radius: var(--r-full);
+  box-shadow: inset 0 0 0 0.5px var(--hairline-strong);
+}
+.folio-app .excalidraw .color-picker__button.active,
+.folio-app .excalidraw .color-picker-swatch:focus {
+  box-shadow:
+    0 0 0 2px var(--paper-elevated),
+    0 0 0 3.5px var(--accent);
+}
+.folio-app .excalidraw .color-picker__button.active .color-picker__button-outline {
+  display: none;
+}
+.folio-app .excalidraw .color-picker,
+.folio-app .excalidraw .color-picker-popover-container {
+  border-radius: var(--r-lg);
+  background: var(--glass-bg-strong);
+  box-shadow: var(--glass-edge), var(--shadow-3);
+}
+.folio-app .excalidraw .color-picker-triangle {
+  display: none;
+}
+.folio-app .excalidraw .dropdown-menu,
+.folio-app .excalidraw .dropdown-menu-container,
+.folio-app .excalidraw .context-menu {
+  min-width: 220px;
+  padding: 6px;
+  border-radius: var(--r-lg);
+  background: var(--glass-bg-strong);
+  box-shadow: var(--glass-edge), var(--shadow-3);
+  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
+  animation: folio-pop var(--dur-base) var(--ease-out);
+}
+.folio-app .excalidraw .dropdown-menu-item,
+.folio-app .excalidraw .context-menu-item {
+  min-height: 30px;
+  border-radius: var(--r-sm);
+  padding-inline: 10px;
+}
+.folio-app .excalidraw .dropdown-menu-item:hover,
+.folio-app .excalidraw .context-menu-item:hover {
+  background: var(--fill-hover);
+}
+.folio-app .excalidraw .Modal,
+.folio-app .excalidraw .Dialog {
+  border-radius: var(--r-2xl);
+}
+.folio-app .excalidraw .Modal__content,
+.folio-app .excalidraw .Dialog {
+  border-radius: var(--r-2xl);
+  background: var(--glass-bg-strong);
+  box-shadow: var(--glass-edge), var(--shadow-4);
+  -webkit-backdrop-filter: var(--glass-filter);
+  backdrop-filter: var(--glass-filter);
+  animation: folio-dialog var(--dur-base) var(--ease-out);
+}
+.folio-app .excalidraw .Modal__background {
+  background: var(--scrim);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.folio-app .excalidraw .Dialog__close {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-full);
+  background: transparent;
+}
+.folio-app .excalidraw .Dialog__close:hover {
+  background: var(--fill-hover);
+}
+.folio-app .excalidraw .zoom-actions,
+.folio-app .excalidraw .undo-redo-buttons {
+  border-radius: var(--r-full);
+  background: var(--glass-bg-strong);
+  box-shadow: var(--glass-edge), var(--shadow-2);
+}
+.folio-app .excalidraw .zoom-actions button,
+.folio-app .excalidraw .undo-redo-buttons button {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--r-full);
+}
+.folio-app .excalidraw .zoom-actions {
+  font-variant-numeric: tabular-nums;
+}
+.folio-app .excalidraw .main-menu-trigger,
+.folio-app .excalidraw .sidebar-trigger,
+.folio-app .excalidraw .default-sidebar-trigger {
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: var(--r-full);
+  background: var(--glass-bg-strong);
+  box-shadow: var(--glass-edge), var(--shadow-1);
+}
+.folio-app .excalidraw .sidebar {
+  margin: 8px;
+  border-radius: var(--r-xl);
+  background: var(--glass-bg-strong);
+  box-shadow: var(--glass-edge), var(--shadow-3);
+}
+.folio-app .excalidraw input:not([type="radio"]):not([type="checkbox"]):not([type="range"]),
+.folio-app .excalidraw .TextInput,
+.folio-app .excalidraw .color-picker-input {
+  min-height: 32px;
+  border-radius: var(--r-md);
+  background: var(--paper-sunken);
+  box-shadow: inset 0 0 0 0.5px var(--hairline-strong);
+}
+.folio-app .excalidraw input[type="range"] {
+  accent-color: var(--accent);
+}
+.folio-app .excalidraw input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: var(--r-full);
+  background: var(--paper-pressed);
+}
+.folio-app .excalidraw input[type="range"]::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--paper-elevated);
+  box-shadow: var(--shadow-1);
+}
+.folio-app .excalidraw .excalidraw-tooltip {
+  border-radius: var(--r-sm);
+  padding: 6px 10px;
+  background: rgba(31, 30, 29, 0.92);
+  color: #f5f4ee;
+  font-size: 12px;
+  box-shadow: var(--shadow-3);
+}
+:root[data-theme="dark"] .folio-app .excalidraw .excalidraw-tooltip {
+  background: rgba(58, 58, 55, 0.96);
+}
+.folio-app .excalidraw .Toast {
+  border-radius: var(--r-full);
+  background: var(--glass-bg-strong);
+  box-shadow: var(--glass-edge), var(--shadow-3);
+  animation: folio-pop var(--dur-base) var(--ease-out);
+}
+.folio-app .excalidraw .welcome-screen-menu-item {
+  border-radius: var(--r-md);
+}
+.folio-app .excalidraw .welcome-screen-menu-item:hover {
+  background: var(--fill-hover);
+}
+.folio-app .excalidraw :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.folio-app .is-reading .excalidraw .main-menu-trigger {
+  display: none;
+}
+.folio-app .is-editing .excalidraw .App-toolbar,
+.folio-app .is-editing .excalidraw .App-menu__left,
+.folio-app .is-editing .excalidraw .undo-redo-buttons {
+  animation: folio-edit var(--dur-base) var(--ease-out);
+}
+.folio-app .is-leaving-edit .excalidraw .App-toolbar,
+.folio-app .is-leaving-edit .excalidraw .App-menu__left,
+.folio-app .is-leaving-edit .excalidraw .undo-redo-buttons {
+  opacity: 0;
+  transition: opacity 140ms var(--ease-in);
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio-app .is-leaving-edit .excalidraw .App-toolbar,
+  .folio-app .is-leaving-edit .excalidraw .App-menu__left,
+  .folio-app .is-leaving-edit .excalidraw .undo-redo-buttons {
+    transition: opacity 120ms var(--ease-in);
+  }
+}
+.folio-app .excalidraw ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.folio-app .excalidraw ::-webkit-scrollbar-thumb {
+  border-radius: var(--r-full);
+  background: color-mix(in oklab, var(--ink) 18%, transparent);
+}
+.folio-app .excalidraw ::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklab, var(--ink) 28%, transparent);
+}
+.folio-app .excalidraw ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.folio-app .excalidraw .welcome-screen-decor-hint,
+.folio-app .excalidraw .welcome-screen-decor-hint__label {
+  color: var(--ink-3);
+}
+
+.folio-app .is-editing .excalidraw .App-toolbar .ToolIcon:nth-child(-n + 10) {
+  animation: folio-edit var(--dur-base) var(--ease-out) both;
+}
+
+.folio-app .is-editing .excalidraw .App-toolbar .ToolIcon:nth-child(1) {
+  animation-delay: 0ms;
+}
+.folio-app .is-editing .excalidraw .App-toolbar .ToolIcon:nth-child(2) {
+  animation-delay: 12ms;
+}
+.folio-app .is-editing .excalidraw .App-toolbar .ToolIcon:nth-child(3) {
+  animation-delay: 24ms;
+}
+.folio-app .is-editing .excalidraw .App-toolbar .ToolIcon:nth-child(4) {
+  animation-delay: 36ms;
+}
+.folio-app .is-editing .excalidraw .App-toolbar .ToolIcon:nth-child(5) {
+  animation-delay: 48ms;
+}
+.folio-app .is-editing .excalidraw .App-toolbar .ToolIcon:nth-child(6) {
+  animation-delay: 60ms;
+}
+.folio-app .is-editing .excalidraw .App-toolbar .ToolIcon:nth-child(7) {
+  animation-delay: 72ms;
+}
+.folio-app .is-editing .excalidraw .App-toolbar .ToolIcon:nth-child(8) {
+  animation-delay: 84ms;
+}
+.folio-app .is-editing .excalidraw .App-toolbar .ToolIcon:nth-child(9) {
+  animation-delay: 96ms;
+}
+.folio-app .is-editing .excalidraw .App-toolbar .ToolIcon:nth-child(10) {
+  animation-delay: 108ms;
+}

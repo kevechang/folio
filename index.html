@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Folio</title>
+    <script>
+      (() => {
+        let firstError;
+        const remember = (value) => {
+          if (!firstError) firstError = String(value?.message ?? value ?? "未知错误");
+        };
+        window.addEventListener("error", (event) => remember(event.error ?? event.message));
+        window.addEventListener("unhandledrejection", (event) => remember(event.reason));
+        setTimeout(() => {
+          const startup = document.getElementById("folio-startup");
+          if (!startup || startup.parentElement?.id !== "root") return;
+          document.getElementById("folio-startup-title").textContent = "Folio 启动失败";
+          const detail = document.getElementById("folio-startup-detail");
+          detail.textContent = firstError ?? "启动超时：入口模块没有完成加载";
+          detail.style.display = "block";
+        }, 5000);
+      })();
+    </script>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        #folio-startup {
+          background: #262624 !important;
+          color: #f5f4ee !important;
+        }
+        #folio-startup-detail {
+          color: #c2c0b6 !important;
+        }
+      }
+    </style>
+  </head>
+  <body style="margin: 0">
+    <div id="root">
+      <div
+        id="folio-startup"
+        style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 32px; box-sizing: border-box; background: #faf9f5; color: #1f1e1d; font: 14px/1.6 -apple-system, BlinkMacSystemFont, 'PingFang SC', system-ui, sans-serif; text-align: center"
+      >
+        <span id="folio-startup-title">Folio 正在启动…</span>
+        <span
+          id="folio-startup-detail"
+          style="display: none; max-width: 560px; color: #5e5d59; font: 12px/1.6 ui-monospace, 'SF Mono', Menlo, monospace; overflow-wrap: anywhere"
+        ></span>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

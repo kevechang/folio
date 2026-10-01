@@ -1,0 +1,89 @@
+All Excalidraw font files are excluded from this source repository. They are copied from the @excalidraw/excalidraw npm package into build artifacts at build time. public/excalidraw-assets/ is ignored by .gitignore.
+
+Assistant
+Copyright 2020 The Assistant Project Authors (https://github.com/hafontia/Assistant). Copyright 2010 The Source Sans Pro Authors (https://github.com/adobe-fonts/source-sans-pro), with Reserved Font Name 'Source'. Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries.
+
+Upstream attribution:
+Copyright 2020 The Assistant Project Authors (https://github.com/hafontia/Assistant).
+Copyright 2010 The Source Sans Pro Authors (https://github.com/adobe-fonts/source-sans-pro), with Reserved Font Name 'Source'.
+Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries.
+
+Cascadia
+© 2020 Microsoft Corporation. All Rights Reserved.
+
+Upstream attribution:
+Copyright (c) 2019 - Present, Microsoft Corporation,
+with Reserved Font Name Cascadia Code.
+
+ComicShanns
+MIT License
+
+Copyright (c) 2018 Shannon Miwa
+Copyright (c) 2023 Jesus Gonzalez
+Copyright (c) 2023 Rodrigo Batista de Moraes
+Copyright (c) 2024 Fini Jastrow
+Copyright (c) 2024 Kyle Beechly
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Excalifont
+Copyright (c) 2024 by Excalidraw. All rights reserved.
+
+Liberation
+Digitized data `2007 Ascender Corporation. All rights reserved.
+
+Upstream attribution:
+Digitized data copyright (c) 2010 Google Corporation
+	with Reserved Font Arimo, Tinos and Cousine.
+Copyright (c) 2012 Red Hat, Inc.
+	with Reserved Font Name Liberation.
+
+Lilita
+Copyright (c) 2011 Juan Montoreano (juan@remolacha.biz), with Reserved Font Names "Lilita One"
+
+Upstream attribution:
+Copyright (c) 2011 Juan Montoreano (juan@remolacha.biz), 
+with Reserved Font Name Lilita
+
+Nunito
+Copyright 2014 The Nunito Project Authors (https://github.com/googlefonts/nunito)
+
+Upstream attribution:
+Copyright 2014 The Nunito Project Authors (https://github.com/googlefonts/nunito)
+
+Virgil
+Copyright (c) 2011 by Your Own Font Foundry. All rights reserved.
+
+Upstream attribution:
+Copyright (c) 2021 - Present, Ellinor Rapp, with Reserved Font Name Virgil.
+
+Xiaolai
+Copyright © 2020 LXGW
+
+Upstream attribution:
+Copyright 2020-2024 LXGW (https://github.com/lxgw/kose-font)
+Copyright 2014 Nozomi Seto (https://ja.osdn.net/projects/setofont/)
+
+Excalifont: Your Own Font Foundry (Virgil); Ján Filípek / DizajnDesign (Excalifont modifications). Source: Excalidraw v0.18.1 packages/excalidraw/fonts/Excalifont/index.ts.
+
+Virgil: Copyright (c) 2011 by Your Own Font Foundry in the bundled font; current upstream identifies Ellinor Rapp. Both attributions are preserved above.
+
+Liberation: the actual build output reports Version 1.05. Its nameID 13 refers only to Ascender's Liberation license agreement; nameID 14 is http://www.ascendercorp.com/liberation.html. It does not state GPLv2, a font exception or OFL terms. These font files are not included in this source repository; they are copied from the @excalidraw/excalidraw npm package into build artifacts at build time. Redistributors of Folio binary packages should independently verify this font's license. The current upstream OFL attribution above does not establish this binary's license. Raw record: Liberation-embedded-name-table.txt.
+
+Cascadia: the actual build output reports Version 2005.150. Its nameID 13 contains a license based on SIL OFL that permits bundling and redistribution with any software, provided each copy includes the copyright notice and that license. Folio bundles this font under those terms. nameID 14 is https://scripts.sil.org/OFL. The original license text is also preserved in Cascadia-embedded-license.txt. Raw record: Cascadia-embedded-name-table.txt.
