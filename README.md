@@ -30,6 +30,12 @@ The interface is currently available in Simplified Chinese only. Contributions f
 - Relative paths for embedded canvases do not currently support filenames containing spaces; for example, `![](./Launch plan.excalidraw)` will not render.
 - Mermaid's default layouts are supported. ELK layout is unavailable in Folio builds; see [third-party notices](THIRD_PARTY_NOTICES.md).
 
+## Download
+
+[Download the latest release](https://github.com/kevechang/folio/releases/latest) for Apple Silicon (arm64) Macs; an Intel Mac build is not currently available. Extract the ZIP and drag `Folio.app` into **Applications**.
+
+The app is not signed with a Developer ID certificate and is not notarized. On first launch, right-click (Control-click) the app in Finder and choose **Open**, or use **System Settings → Privacy & Security → Open Anyway**. If macOS says the app is damaged, run `xattr -dr com.apple.quarantine /Applications/Folio.app` in Terminal, then open it again.
+
 ## Install from source
 
 Requires macOS on Apple Silicon (arm64) and Node 22+ with npm.

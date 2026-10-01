@@ -30,6 +30,12 @@ Folio 是面向 macOS 的 Excalidraw 画布与 Markdown 文稿阅读、编辑器
 - 嵌入画布的相对路径暂不支持包含空格的文件名，例如 `![](./Launch plan.excalidraw)` 不会渲染。
 - 支持 Mermaid 默认布局。Folio 构建不提供 ELK 布局，详情见[第三方声明](THIRD_PARTY_NOTICES.md)。
 
+## 下载
+
+[下载最新版本](https://github.com/kevechang/folio/releases/latest)，适用于 Apple Silicon（arm64）Mac；Intel Mac 暂不提供。解压 ZIP 后，将 `Folio.app` 拖到「应用程序」。
+
+App 未使用 Developer ID 签名，也未公证。首次打开请在 Finder 中右键（Control-点按）App →「打开」，或到「系统设置 → 隐私与安全性」点「仍要打开」。若提示「已损坏，无法打开」，在终端执行 `xattr -dr com.apple.quarantine /Applications/Folio.app` 后再打开。
+
 ## 从源码安装
 
 需要 Apple Silicon（arm64）Mac、Node 22+ 和 npm。
