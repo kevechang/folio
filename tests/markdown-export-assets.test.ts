@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { imageLimit, inlineLocalImages } from "../src/features/markdown/export/assets";
+import { inlineLocalImages } from "../src/features/markdown/export/assets";
 import { platform } from "../src/lib/platform";
 
 afterEach(() => vi.restoreAllMocks());
@@ -48,24 +48,30 @@ describe("inlineLocalImages", () => {
     expect(readAsset).not.toHaveBeenCalled();
   });
 
-  it("uses the final HTML directory when the combined image size exceeds 20 MiB", async () => {
-    vi.spyOn(platform, "readAsset").mockResolvedValue(new Uint8Array(imageLimit / 2 + 1));
+  it("uses the final HTML directory when the combined image size exceeds the limit", async () => {
+    vi.spyOn(platform, "readAsset").mockResolvedValue(new Uint8Array(9));
     const root = article(
       '<img src="folio-asset://local/docs/assets/a.png"><img src="folio-asset://local/docs/assets/b.png">',
     );
-    const result = await inlineLocalImages(root, "/exports/site/a.html", { format: "html" });
-    expect(result).toEqual({ imagesKept: true, hasLargeImages: true, rejectedImages: 0 });
+    const result = await inlineLocalImages(root, "/exports/site/a.html", {
+      format: "html",
+      limit: 16,
+    });
+    expect(result).toEqual({ imagesKept: true, hasLargeImages: false, rejectedImages: 0 });
     expect(root.querySelectorAll("img")[0].getAttribute("src")).toBe("../../docs/assets/a.png");
     expect(root.querySelectorAll("img")[1].getAttribute("src")).toBe("../../docs/assets/b.png");
   });
 
-  it("always inlines PDF images, ignoring both the default and a supplied size limit", async () => {
-    vi.spyOn(platform, "readAsset").mockResolvedValue(new Uint8Array(imageLimit + 1));
+  it("always inlines PDF images, ignoring a supplied size limit", async () => {
+    const bytes = new Uint8Array(17).fill(1);
+    vi.spyOn(platform, "readAsset").mockResolvedValue(bytes);
     const root = article('<img src="folio-asset://local/docs/a.png">');
     const result = await inlineLocalImages(root, "/exports/a.pdf", { format: "pdf", limit: 0 });
     const src = root.querySelector("img")!.getAttribute("src")!;
     expect(src.startsWith("data:image/png;base64,")).toBe(true);
-    expect(atob(src.split(",")[1]).length).toBe(imageLimit + 1);
-    expect(result).toEqual({ imagesKept: false, hasLargeImages: true, rejectedImages: 0 });
+    expect(Array.from(atob(src.split(",")[1]), (character) => character.charCodeAt(0))).toEqual(
+      Array.from(bytes),
+    );
+    expect(result).toEqual({ imagesKept: false, hasLargeImages: false, rejectedImages: 0 });
   });
 });

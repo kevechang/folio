@@ -4,6 +4,8 @@ import { buildStandaloneHtml, documentTitle } from "../src/features/markdown/exp
 import { buildWechatHtml, inlineStyles } from "../src/features/markdown/export/wechat";
 import { renderForExport } from "../src/features/markdown/export/render";
 import { lightTokens } from "../src/features/markdown/export/light-tokens";
+import * as exportAssets from "../src/features/markdown/export/assets";
+import { inlineLocalImages, largeImageLimit } from "../src/features/markdown/export/assets";
 import { platform } from "../src/lib/platform";
 
 vi.mock("../src/features/markdown/render/pipeline", () => ({
@@ -78,22 +80,40 @@ describe("standalone HTML", () => {
     const small = await buildStandaloneHtml(root, { title: "A", documentPath: "/docs/a.md" });
     expect(small.html).toContain("data:image/png;base64,AQID");
     expect(small.html).not.toContain("folio-asset:");
-    vi.spyOn(platform, "readAsset").mockResolvedValue(new Uint8Array(21 * 1024 * 1024));
-    const large = await buildStandaloneHtml(root, {
-      title: "A",
-      documentPath: "/docs/a.md",
-      exportTargetPath: "/exports/html/a.html",
+    vi.spyOn(platform, "readAsset").mockResolvedValue(new Uint8Array(17));
+    const fallback = root.cloneNode(true) as HTMLElement;
+    const large = await inlineLocalImages(fallback, "/exports/html/a.html", {
       format: "html",
+      limit: 16,
     });
     expect(large.imagesKept).toBe(true);
-    expect(large.html).toContain('src="../../docs/assets/a.png"');
+    expect(fallback.querySelector("img")?.getAttribute("src")).toBe("../../docs/assets/a.png");
   });
   it("keeps PDF images inline even above the HTML size limit", async () => {
-    vi.spyOn(platform, "readAsset").mockResolvedValue(new Uint8Array(21 * 1024 * 1024));
-    const result = await buildStandaloneHtml(
-      article('<img src="folio-asset://local/docs/assets/a.png">'),
-      { title: "A", exportTargetPath: "/exports/a.pdf", format: "pdf" },
+    const bytes = new Uint8Array(17).fill(1);
+    vi.spyOn(platform, "readAsset").mockResolvedValue(bytes);
+    const root = article('<img src="folio-asset://local/docs/assets/a.png">');
+    const html = root.cloneNode(true) as HTMLElement;
+    expect(
+      (await inlineLocalImages(html, "/exports/a.html", { format: "html", limit: 16 })).imagesKept,
+    ).toBe(true);
+    expect(html.querySelector("img")?.getAttribute("src")).toBe("../docs/assets/a.png");
+    const pdf = root.cloneNode(true) as HTMLElement;
+    expect(await inlineLocalImages(pdf, "/exports/a.pdf", { format: "pdf", limit: 16 })).toEqual({
+      imagesKept: false,
+      hasLargeImages: false,
+      rejectedImages: 0,
+    });
+    const src = pdf.querySelector("img")!.getAttribute("src")!;
+    expect(src).toMatch(/^data:image\/png;base64,/);
+    expect(Array.from(atob(src.split(",")[1]), (character) => character.charCodeAt(0))).toEqual(
+      Array.from(bytes),
     );
+    const result = await buildStandaloneHtml(root, {
+      title: "A",
+      exportTargetPath: "/exports/a.pdf",
+      format: "pdf",
+    });
     expect(result.imagesKept).toBe(false);
     expect(result.rejectedImages).toBe(0);
     expect(result.html).toContain('src="data:image/png;base64,');
@@ -166,13 +186,18 @@ describe("WeChat copy", () => {
   });
 
   it("continues to inline clipboard images above the HTML size limit", async () => {
-    vi.spyOn(platform, "readAsset").mockResolvedValue(new Uint8Array(21 * 1024 * 1024));
+    vi.spyOn(platform, "readAsset").mockResolvedValue(new Uint8Array(17));
+    // Use a small default limit while preserving the caller's explicit override.
+    const inlineImages = inlineLocalImages;
+    vi.spyOn(exportAssets, "inlineLocalImages").mockImplementation((root, target, options) =>
+      inlineImages(root, target, { limit: 16, ...options }),
+    );
     const result = await buildWechatHtml(
       article('<img src="folio-asset://local/docs/a.png">'),
       "/docs/a.md",
     );
     expect(result.rejectedImages).toBe(0);
-    expect(result.hasLargeImages).toBe(true);
+    expect(result.hasLargeImages).toBe(false);
     expect(result.html).toContain('src="data:image/png;base64,');
     expect(result.html).not.toContain("folio-asset:");
   });
@@ -199,7 +224,10 @@ describe("WeChat copy", () => {
         }
       },
     );
-    vi.spyOn(platform, "readAsset").mockResolvedValue(new Uint8Array(2 * 1024 * 1024 + 1));
+    const bytes = new Uint8Array([1, 2, 3]);
+    // Simulate size metadata; base64 still encodes only the three actual bytes.
+    vi.spyOn(bytes, "byteLength", "get").mockReturnValue(largeImageLimit + 1);
+    vi.spyOn(platform, "readAsset").mockResolvedValue(bytes);
     const root = article(
       '<span class="folio-math" data-tex="x^2">x²</span><img src="folio-asset://local/docs/a.png">',
     );
