@@ -85,6 +85,10 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUC
 
 Report vulnerabilities through GitHub private vulnerability reporting. See [SECURITY.md](SECURITY.md).
 
+## Acknowledgements
+
+Thanks to the [LINUX DO](https://linux.do) community for its support and discussions.
+
 ## License
 
 Folio is licensed under **GPL-3.0-or-later**. See [LICENSE](LICENSE) for the full GPL version 3 text.

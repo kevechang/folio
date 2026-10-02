@@ -81,6 +81,10 @@ HTML 导出保留远程图片地址；PDF 导出只允许远程图片请求，�
 
 请通过 GitHub 私密漏洞报告提交安全问题，流程见 [SECURITY.md](SECURITY.md)。
 
+## 致谢
+
+感谢 [LINUX DO](https://linux.do) 社区的支持与交流。
+
 ## 许可证
 
 Folio 使用 **GPL-3.0-or-later** 许可证，GPL 第 3 版完整文本见 [LICENSE](LICENSE)。
